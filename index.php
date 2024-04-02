@@ -1,113 +1,100 @@
+<?php require 'admin/fungsi/fungsi.php'; ?>
+<?php require 'assets/portal/section.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+    <!-- Required meta tags-->
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Masuk Web Pembayaran SPP SMA Darul Ma'arif</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
 
-    <!-- General CSS Files -->
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fontawesome-free/css/all.css">
 
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/components.css">
+    <!-- Title Page-->
+    <title>Login Admin</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="assets/css/font-face.css" rel="stylesheet" media="all">
+    <link href="assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="assets/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="assets/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+
+    <!-- Main CSS-->
+    <link href="assets/css/theme.css" rel="stylesheet" media="all">
 
 </head>
 
-<body class="bg-prymary">
-
-    <?php
-    if (isset($_GET['pesan'])) {
-        if ($_GET['pesan'] == "gagal") {
-            echo "<div class='alert alert-primary alert-dismissible fade show' role='alert'>
-					  <strong>Perhatian!</strong> Mohon Cek Kembali Username dan Password Anda.
-					  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-					    <span aria-hidden='true'>&times;</span>
-					  </button>
-					</div>";
-        }
-        if ($_GET['pesan'] == "belummasuk") {
-            echo "<div class='alert alert-primary alert-dismissible fade show' role='alert'>
-					  <strong>Perhatian!</strong> Username dan Password Anda Belum Terdaftar                                        					                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-					    <span aria-hidden='true'>&times;</span>
-					  </button>
-					</div>";
-        }
-    }
-    ?>
-
-    <body>
-        <div id="app">
-            <section class="section">
-                <div class="container mt-5">
-                    <div class="row">
-                        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-                            <div class="login-brand">
-                                <img src="img/avatar/avatar-1.png" alt="logo" width="100" class="shadow-light rounded-circle">
-                            </div>
-
-                            <div class="card card-info">
-                                <div class="card-header">
-                                    <h4>Silahkan Masuk Admin</h4>
+<body class="animsition">
+    <div class="page-wrapper">
+        <div class="page-content--bge5">
+            <div class="container">
+                <div class="login-wrap">
+                    <div class="login-content">
+                        <div class="login-logo">
+                        </div>
+                        <div class="login-form">
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input class="au-input au-input--full" required="" type="username" autocomplete="off" name="username" placeholder="Username">
                                 </div>
-
-                                <div class="card-body">
-                                    <form action="cek_login.php" method="post">
-                                        <div class="form-group">
-                                            <label>Username</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text"><i class="fas fa-user"></i></div>
-                                                </div>
-                                                <input type="text" name="username" class="form-control" placeholder="Username" required="required">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text"><i class="fas fa-unlock-alt"></i></div>
-                                                </div>
-                                                <input type="password" name="password" class="form-control" placeholder="Password" required="required">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                                                Login
-                                            </button>
-                                        </div>
-                                    </form>
-
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input class="au-input au-input--full" required="" type="password" name="password" placeholder="Password">
                                 </div>
-                            </div>
+                                <div class="login-checkbox">
+
+                                    <label>
+                                        <a href="admin/fungsi/forgot-password/forgot-password.php" target="_BLANK">Lupa Password?</a>
+                                    </label>
+                                </div>
+                                <button name="submit" class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+
+                            </form>
+                            <br>
+
+                            <!-- Login -->
+                            <?php $pro->login("username", "password", "submit"); ?>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
-        </section>
-        </div>
 
-        <!-- General JS Scripts -->
-        <script src="bootstrap/jquery-3.3.1.min.js"></script>
-        <script src="bootstrap/popper.min.js"></script>
-        <script src="bootstrap/bootstrap.min.js"></script>
-        <script src="bootstrap/jquery.nicescroll.min.js"></script>
-        <script src="bootstrap/moment.min.js"></script>
-        <script src="bootstrap/stisla.js"></script>
+    </div>
 
-        <!-- Template JS File -->
-        <script src="bootstrap/scripts.js"></script>
-        <script src="bootstrap/custom.js"></script>
+    <!-- Jquery JS-->
+    <script src="assets/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="assets/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- assets/Vendor JS       -->
+    <script src="assets/vendor/slick/slick.min.js">
+    </script>
+    <script src="assets/vendor/wow/wow.min.js"></script>
+    <script src="assets/vendor/animsition/animsition.min.js"></script>
+    <script src="assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="assets/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="assets/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="assets/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="assets/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="assets/vendor/select2/select2.min.js">
+    </script>
 
-        <!-- Page Specific JS File -->
-        <script src="bootstrap/page/index.js"></script>
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
 
-        <!-- Page Specific JS File -->
-    </body>
+</body>
 
 </html>
+<!-- end document-->
