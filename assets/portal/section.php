@@ -1,11 +1,15 @@
 <?php
 
-
 class login_app
 {
 	public $koneksi;
 	public function login($data1, $data2, $submit)
 	{
+		// Check if session is not already started
+		if (session_status() === PHP_SESSION_NONE) {
+			session_start();
+		}
+
 		if (isset($_POST[$submit])) {
 			$this->koneksi;
 			$username = $_POST[$data1];
@@ -16,11 +20,26 @@ class login_app
 			$r = mysqli_fetch_array($login);
 
 			if ($row > 0) {
-				session_start();
 				$_SESSION['idsppapp'] = $r['id'];
-				header("location: admin/index.php?m=awal");
+				echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>';
+				echo '<script>
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Login Berhasil !"
+                    }).then(() => {
+                        window.location.href = "admin/index.php?m=dashboard";
+                    });
+                </script>';
 			} else {
-				echo '<script>alert("gagal login")</script>';
+				echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>';
+				echo '<script>
+                    Swal.fire({
+                        icon: "error",
+                        title: "Gagal Login...",
+                        text: "Username atau password salah"
+                    });
+                </script>';
 			}
 		}
 	}
@@ -28,3 +47,4 @@ class login_app
 
 $pro = new login_app();
 $pro->koneksi = mysqli_connect('localhost', 'root', '', 'spp_smadm');
+$pro->login('username', 'password', 'submit'); // Adjust the parameters accordingly based on your form fields

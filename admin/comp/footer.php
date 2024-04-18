@@ -17,29 +17,25 @@
    </div>
 
    <!-- Jquery JS-->
-   <script src="<?= url() ?>vendor/jquery-3.2.1.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <!-- Bootstrap JS-->
-   <script src="<?= url() ?>vendor/bootstrap-4.1/popper.min.js"></script>
-   <script src="<?= url() ?>vendor/bootstrap-4.1/bootstrap.min.js"></script>
-   <!-- <?= url() ?>Vendor JS       -->
-   <script src="<?= url() ?>vendor/slick/slick.min.js">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <!-- Vendor JS       -->
+   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.min.js">
    </script>
-   <script src="<?= url() ?>vendor/wow/wow.min.js"></script>
-   <script src="<?= url() ?>vendor/animsition/animsition.min.js"></script>
-   <script src="<?= url() ?>vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/animsition@4.0.2/dist/js/animsition.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-progressbar/0.9.0/bootstrap-progressbar.min.js">
    </script>
-   <script src="<?= url() ?>vendor/counter-up/jquery.waypoints.min.js"></script>
-   <script src="<?= url() ?>vendor/counter-up/jquery.counterup.min.js">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js">
    </script>
-   <script src="<?= url() ?>vendor/circle-progress/circle-progress.min.js"></script>
-   <script src="<?= url() ?>vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-   <script src="<?= url() ?>vendor/chartjs/Chart.bundle.min.js"></script>
-   <script src="<?= url() ?>vendor/select2/select2.min.js">
-   </script>
-
-   <!-- Main JS-->
-   <script src="<?= url() ?>js/main.js"></script>
-
+   <script src="https://cdn.jsdelivr.net/npm/jquery-circle-progress/dist/circle-progress.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/perfect-scrollbar/1.5.0/perfect-scrollbar.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+   <script src="../assets/js/main.js"></script>
    </body>
 
    </html>

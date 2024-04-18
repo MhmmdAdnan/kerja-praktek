@@ -15,43 +15,41 @@
         <meta name="keywords" content="au theme template">
 
         <!-- Icon -->
-        <link rel="icon" type="image/png" href="<?= url() ?>images/logo_tittle.png">
+        <link rel="icon" type="image/png" href="assets/images/logo_tittle.png">
         <!-- Title Page-->
         <title><?= $judul; ?></title>
 
         <!-- Fontfaces CSS-->
-        <link href="<?= url() ?>css/font-face.css" rel="stylesheet" media="all">
-        <link href="<?= url() ?>vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-        <link href="<?= url() ?>vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-        <link href="<?= url() ?>vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+        <link href="assets/css/font-face.css" rel="stylesheet" media="all">
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" media="all">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Material Design Icons -->
+        <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet" media="all">
 
         <!-- Bootstrap CSS-->
-        <link href="<?= url() ?>vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" media="all">
 
-        <!-- <?= url() ?>Vendor CSS-->
-        <link href="<?= url() ?>vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-        <link href="<?= url() ?>vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-        <link href="<?= url() ?>vendor/wow/animate.css" rel="stylesheet" media="all">
-        <link href="<?= url() ?>vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-        <link href="<?= url() ?>vendor/slick/slick.css" rel="stylesheet" media="all">
-        <link href="<?= url() ?>vendor/select2/select2.min.css" rel="stylesheet" media="all">
-        <link href="<?= url() ?>vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-        <!-- Main CSS-->
-        <link href="<?= url() ?>css/theme.css" rel="stylesheet" media="all">
-
+        <!-- Vendor CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.min.css" rel="stylesheet" media="all">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" rel="stylesheet" media="all">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" media="all">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" rel="stylesheet" media="all">
+        <link rel="stylesheet" href="../assets/css/theme.css">
     </head>
 
     <body class="animsition">
         <div class="page-wrapper">
-            <!-- HEADER DESKTOP-->
+            <!-- HEADER DESKTOP -->
             <header class="header-desktop3 d-none d-lg-block">
                 <div class="section__content section__content--p35">
                     <div class="header3-wrap">
                         <div class="header__logo">
                             <div class="img-cir">
-                                <a href="#">
-                                    <?= gambar("logo_spp.png", "50") ?>
+                                <a href="index.php">
+                                    <img src="../assets/images/logo_spp.png" alt="gambar" width="50" height="50">
                                 </a>
                             </div>
                             <!-- Bulan -->
@@ -116,23 +114,23 @@
                         </div>
                         <div class="header__tool">
 
-
                             <div class="account-wrap">
                                 <div class="account-item account-item--style2 clearfix js-item-menu">
                                     <div class="image">
                                         <div class="img-cir">
-                                            <?= gambar("admin_logoZ.jpg", "64"); ?>
+                                            <img src="../assets/images/admin_logo.jpg" alt="gambar" width="64" height="64">
                                         </div>
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#"><?= $adm['nama']; ?></a>
+                                        <h4 style="color:white;"><?= $adm['nama']; ?> <i class="fa-solid fa-caret-down"></i></h4>
+
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
                                             <div class="image">
                                                 <a href="#">
                                                     <div class="img-cir">
-                                                        <?= gambar("admin_logoZ.jpg", "64"); ?>
+                                                        <img src="../assets/images/admin_logo.jpg" alt="gambar" width="64" height="64">
                                                     </div>
                                                 </a>
                                             </div>
@@ -146,13 +144,13 @@
                                         <div class="account-dropdown__body">
                                             <div class="account-dropdown__item">
                                                 <a href="?m=admin&s=akun">
-                                                    <i class="zmdi zmdi-account"></i>Akun</a>
+                                                    <i class="fa-solid fa-user-tie"></i></i>Akun</a>
                                             </div>
 
                                         </div>
                                         <div class="account-dropdown__footer">
                                             <a href="fungsi/logout.php">
-                                                <i class="zmdi zmdi-power"></i>Logout</a>
+                                                <i class="fa-solid fa-right-from-bracket"></i></i>Logout</a>
                                         </div>
                                     </div>
                                 </div>
@@ -169,14 +167,14 @@
                     <div class="container-fluid">
                         <div class="header-mobile-inner">
                             <div class="img-cir">
-                                <a class="logo" href="index.html">
-                                    <?= gambar("logo_spp_64x64.png", "60") ?>
+                                <a class="logo" href="index.php">
+                                    <img src="../assets/images/logo_spp.png" alt="gambar" width="60" height="60">
                                 </a>
                             </div>
 
                             <button class="hamburger hamburger--slider" type="button">
                                 <span class="hamburger-box">
-                                    <span class="hamburger-inner"></span>
+                                    <i class="fa-solid fa-bars" style="color: white;"></i>
                                 </span>
                             </button>
                         </div>
@@ -187,7 +185,7 @@
                         <ul class="navbar-mobile__list list-unstyled">
 
                             <li class="has-sub">
-                                <a href="#">
+                                <a href="index.php">
                                     <i class="fas fa-tachometer-alt"></i>Dashboard
                                     <span class="bot-line"></span>
                                 </a>
@@ -246,18 +244,19 @@
                         <div class="account-item account-item--style2 clearfix js-item-menu">
                             <div class="image">
                                 <div class="img-cir">
-                                    <?= gambar("logo_spp_64x64.png", "120") ?>
+                                    <img src="../assets/images/admin_logo.jpg" alt="gambar" width="120" height="120">
                                 </div>
                             </div>
                             <div class="content">
-                                <a class="js-acc-btn" href="#"><?= $adm['nama']; ?></a>
+                                <h5 style="color:grey"><?= $adm['nama']; ?> <i class="fa-solid fa-caret-down"></i></h5>
+
                             </div>
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
                                             <div class="img-cir">
-                                                <?= gambar("logo_spp_64x64.png", "120") ?>
+                                                <img src="../assets/images/admin_logo.jpg" alt="gambar" width="120" height="120">
                                             </div>
                                         </a>
                                     </div>
@@ -271,13 +270,12 @@
                                 <div class="account-dropdown__body">
                                     <div class="account-dropdown__item">
                                         <a href="?m=admin&s=akun">
-                                            <i class="zmdi zmdi-account"></i>Account</a>
+                                            <i class="fa-solid fa-user-tie"></i>Account</a>
                                     </div>
-
                                 </div>
                                 <div class="account-dropdown__footer">
                                     <a href="fungsi/logout.php">
-                                        <i class="zmdi zmdi-power"></i>Logout</a>
+                                        <i class="fa-solid fa-right-from-bracket"></i></i>Logout</a>
                                 </div>
                             </div>
                         </div>
@@ -285,4 +283,3 @@
                 </div>
             </div>
         <?php endforeach; ?>
-        <!-- END HEADER MOBILE -->
