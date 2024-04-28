@@ -9,4 +9,10 @@ switch ($modul) {
         $judul = "Dashboard $nama_app";
         include 'dashboard.php';
         break;
+    case 'admin':
+        include 'modul/admin/index.php';
+        break;
+    case 'siswa':
+        include 'modul/siswa/index.php';
+        break;
 }
