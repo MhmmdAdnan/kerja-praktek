@@ -15,4 +15,10 @@ switch ($modul) {
     case 'siswa':
         include 'modul/siswa/index.php';
         break;
+    case 'kelas':
+        include 'modul/kelas/index.php';
+        break;
+    case 'jurusan':
+        include 'modul/jurusan/index.php';
+        break;
 }

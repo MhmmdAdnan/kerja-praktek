@@ -10,7 +10,7 @@ function summon_admin()
     return mysqli_query($koneksi, "SELECT * FROM admin WHERE id='$id'");
 }
 
-// ---------------------------------------------------FUNGSI SISWA----------------------------------------------------------
+//---FUNGSI SISWA---
 function insert_siswa()
 {
     global $koneksi;
@@ -82,7 +82,50 @@ function edit_siswa()
     $save2 = mysqli_query($koneksi, "UPDATE tb_tagihan SET nis='$nis', nama='$nama', kelas='$kelas', jurusan='$jurusan' WHERE nis='$nis'");
 }
 
+// --- FUNGSI KELAS ---
+function insert_kelas()
+{
+    global $koneksi;
+    $kelas = $_POST['kelas'];
 
+
+    date_default_timezone_set("Asia/Jakarta");
+
+    $tstamp = date("d-m-Y h:i:s a");
+
+    $admin = $_POST['admin'];
+
+    return mysqli_query($koneksi, "INSERT INTO tb_kelas SET kelas='$kelas', tstamp='$tstamp', admin='$admin'");
+}
+
+function hapus_kelas()
+{
+    global $koneksi;
+    $id = $_POST['id'];
+
+    return mysqli_query($koneksi, "DELETE FROM tb_kelas WHERE id='$id'");
+}
+
+function hapus_kelas_semua()
+{
+    global $koneksi;
+
+    return mysqli_query($koneksi, "DELETE FROM tb_kelas");
+}
+
+function edit_kelas()
+{
+    global $koneksi;
+    $id = $_POST['id'];
+    $kelas = $_POST['kelas'];
+
+    date_default_timezone_set("Asia/Jakarta");
+    $tstamp = date("d-m-Y h:i:s a");
+
+    $admin = $_POST['admin'];
+
+    return mysqli_query($koneksi, "UPDATE tb_kelas SET kelas='$kelas', tstamp='$tstamp', admin='$admin' WHERE id='$id'");
+}
 function gambar($img, $size)
 {
     echo '<img src="//localhost/kerja-praktek/assets/images/' . $img . '" width="' . $size . '">';
