@@ -126,6 +126,54 @@ function edit_kelas()
 
     return mysqli_query($koneksi, "UPDATE tb_kelas SET kelas='$kelas', tstamp='$tstamp', admin='$admin' WHERE id='$id'");
 }
+
+// --- FUNGSI JURUSAN ---
+function insert_jurusan()
+{
+    global $koneksi;
+    $jurusan = $_POST['jurusan'];
+
+    date_default_timezone_set("Asia/Jakarta");
+    $tstamp = date("d-m-Y h:i:s a");
+
+
+
+    $admin = $_POST['admin'];
+
+    return mysqli_query($koneksi, "INSERT INTO tb_jurusan SET jurusan='$jurusan', tstamp='$tstamp', admin='$admin'");
+}
+
+function delete_jurusan()
+{
+    global $koneksi;
+    $id = $_POST['id'];
+
+    return mysqli_query($koneksi, "DELETE FROM tb_jurusan WHERE id='$id'");
+}
+
+function delete_jurusan_semua()
+{
+    global $koneksi;
+
+    return mysqli_query($koneksi, "DELETE FROM tb_jurusan");
+}
+
+function edit_jurusan()
+{
+    global $koneksi;
+    $id = $_POST['id'];
+    $jurusan = $_POST['jurusan'];
+
+    date_default_timezone_set("Asia/Jakarta");
+    $tstamp = date("d-m-Y h:i:s a");
+
+
+
+    $admin = $_POST['admin'];
+
+    return mysqli_query($koneksi, " UPDATE tb_jurusan SET jurusan='$jurusan', tstamp='$tstamp', admin='$admin' WHERE id='$id'");
+}
+
 function gambar($img, $size)
 {
     echo '<img src="//localhost/kerja-praktek/assets/images/' . $img . '" width="' . $size . '">';
