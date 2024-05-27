@@ -54,9 +54,9 @@
                                 </div>
                                 <div class="login-checkbox">
 
-                                    <label>
+                                    <!-- <label>
                                         <a href="reset-password.php" target="_BLANK">Lupa Password?</a>
-                                    </label>
+                                    </label> -->
                                 </div>
                                 <button name="submit" class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
 

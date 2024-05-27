@@ -1,7 +1,7 @@
 <?php
 
 // koneksi
-$koneksi = mysqli_connect('localhost', 'root', '', 'spp_smadm');
+$koneksi = mysqli_connect('localhost', 'root', '', 'kp_spp');
 
 function summon_admin()
 {

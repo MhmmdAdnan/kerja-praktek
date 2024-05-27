@@ -13,7 +13,7 @@ class login_app
 		if (isset($_POST[$submit])) {
 			$this->koneksi;
 			$username = $_POST[$data1];
-			$password = md5($_POST[$data2]);
+			$password = $_POST[$data2];
 			// proses login
 			$login = mysqli_query($this->koneksi, "SELECT * FROM admin WHERE username='$username' AND password='$password'");
 			$row = mysqli_num_rows($login);
@@ -46,5 +46,5 @@ class login_app
 }
 
 $pro = new login_app();
-$pro->koneksi = mysqli_connect('localhost', 'root', '', 'spp_smadm');
-$pro->login('username', 'password', 'submit'); // Adjust the parameters accordingly based on your form fields
+$pro->koneksi = mysqli_connect('localhost', 'root', '', 'kp_spp');
+$pro->login('username', 'password', 'submit');
