@@ -3,12 +3,14 @@
 // koneksi
 $koneksi = mysqli_connect('localhost', 'root', '', 'kp_spp');
 
+// --- FUNGSI ADMIN ---
 function summon_admin()
 {
     global $koneksi;
     $id = $_SESSION['idsppapp'];
     return mysqli_query($koneksi, "SELECT * FROM admin WHERE id='$id'");
 }
+// --- END FUNGSI ADMIN ---
 
 //---FUNGSI SISWA---
 function insert_siswa()
@@ -82,6 +84,8 @@ function edit_siswa()
     $save2 = mysqli_query($koneksi, "UPDATE tb_tagihan SET nis='$nis', nama='$nama', kelas='$kelas', jurusan='$jurusan' WHERE nis='$nis'");
 }
 
+// --- END SISWA ---
+
 // --- FUNGSI KELAS ---
 function insert_kelas()
 {
@@ -127,6 +131,8 @@ function edit_kelas()
     return mysqli_query($koneksi, "UPDATE tb_kelas SET kelas='$kelas', tstamp='$tstamp', admin='$admin' WHERE id='$id'");
 }
 
+// --- END KELAS ---
+
 // --- FUNGSI JURUSAN ---
 function insert_jurusan()
 {
@@ -167,7 +173,54 @@ function edit_jurusan()
     date_default_timezone_set("Asia/Jakarta");
     $tstamp = date("d-m-Y h:i:s a");
 
+    // --END JURUSAN--
 
+    // ---FUNGSI TAHUN PELAJARAN ---
+
+    function insert_tapel()
+    {
+        global $koneksi;
+        $tapel = $_POST['tapel'];
+
+        date_default_timezone_set("Asia/Jakarta");
+        $tstamp = date("d-m-Y h:i:s a");
+
+        $admin = $_POST['admin'];
+
+        return mysqli_query($koneksi, "INSERT INTO tb_tahun_ajaran SET tapel='$tapel', tstamp='$tstamp', admin='$admin'");
+    }
+
+    function hapus_tapel()
+    {
+        global $koneksi;
+        $id = $_POST['id'];
+
+        return mysqli_query($koneksi, "DELETE FROM tb_tahun_ajaran WHERE id='$id'");
+    }
+
+
+    function edit_tapel()
+    {
+        global $koneksi;
+        $id = $_POST['id'];
+        $tapel = $_POST['tapel'];
+
+        date_default_timezone_set("Asia/Jakarta");
+        $tstamp = date("d-m-Y h:i:s a");
+
+        $admin = $_POST['admin'];
+
+        return mysqli_query($koneksi, "UPDATE tb_tahun_ajaran SET tapel='$tapel', tstamp='$tstamp', admin='$admin'");
+    }
+
+    function hapus_tapel_semua()
+    {
+        global $koneksi;
+
+        return mysqli_query($koneksi, "DELETE FROM tb_tahun_ajaran");
+    }
+
+    // -- END TAPEL --
 
     $admin = $_POST['admin'];
 

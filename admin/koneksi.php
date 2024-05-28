@@ -2,7 +2,7 @@
 $host = 'localhost';
 $user = 'root';
 $password = '';
-$database = 'spp_smadm';
+$database = 'kp_spp';
 
 $koneksi = mysqli_connect($host, $user, $password, $database);
 
