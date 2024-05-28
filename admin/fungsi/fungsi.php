@@ -10,6 +10,26 @@ function summon_admin()
     $id = $_SESSION['idsppapp'];
     return mysqli_query($koneksi, "SELECT * FROM admin WHERE id='$id'");
 }
+function select_admin()
+{
+    global $koneksi;
+    return mysqli_query($koneksi, "SELECT * FROM admin");
+}
+function edit_admin()
+{
+    global $koneksi;
+    $id = $_POST['id'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $nama = $_POST['nama'];
+    $kontak = $_POST['kontak'];
+
+    date_default_timezone_set("Asia/Jakarta");
+
+    $tstamp = date("d-m-Y h:i a");
+
+    return mysqli_query($koneksi, "UPDATE admin SET username='$username', password='$password', nama='$nama', kontak='$kontak', tstamp='$tstamp' where id='$id'");
+}
 // --- END FUNGSI ADMIN ---
 
 //---FUNGSI SISWA---
@@ -173,59 +193,58 @@ function edit_jurusan()
     date_default_timezone_set("Asia/Jakarta");
     $tstamp = date("d-m-Y h:i:s a");
 
-    // --END JURUSAN--
 
-    // ---FUNGSI TAHUN PELAJARAN ---
-
-    function insert_tapel()
-    {
-        global $koneksi;
-        $tapel = $_POST['tapel'];
-
-        date_default_timezone_set("Asia/Jakarta");
-        $tstamp = date("d-m-Y h:i:s a");
-
-        $admin = $_POST['admin'];
-
-        return mysqli_query($koneksi, "INSERT INTO tb_tahun_ajaran SET tapel='$tapel', tstamp='$tstamp', admin='$admin'");
-    }
-
-    function hapus_tapel()
-    {
-        global $koneksi;
-        $id = $_POST['id'];
-
-        return mysqli_query($koneksi, "DELETE FROM tb_tahun_ajaran WHERE id='$id'");
-    }
-
-
-    function edit_tapel()
-    {
-        global $koneksi;
-        $id = $_POST['id'];
-        $tapel = $_POST['tapel'];
-
-        date_default_timezone_set("Asia/Jakarta");
-        $tstamp = date("d-m-Y h:i:s a");
-
-        $admin = $_POST['admin'];
-
-        return mysqli_query($koneksi, "UPDATE tb_tahun_ajaran SET tapel='$tapel', tstamp='$tstamp', admin='$admin'");
-    }
-
-    function hapus_tapel_semua()
-    {
-        global $koneksi;
-
-        return mysqli_query($koneksi, "DELETE FROM tb_tahun_ajaran");
-    }
-
-    // -- END TAPEL --
 
     $admin = $_POST['admin'];
 
     return mysqli_query($koneksi, " UPDATE tb_jurusan SET jurusan='$jurusan', tstamp='$tstamp', admin='$admin' WHERE id='$id'");
 }
+// --END JURUSAN--
+
+// ---FUNGSI TAHUN PELAJARAN ---
+function insert_tapel()
+{
+    global $koneksi;
+    $tapel = $_POST['tapel'];
+
+    date_default_timezone_set("Asia/Jakarta");
+    $tstamp = date("d-m-Y h:i:s a");
+
+    $admin = $_POST['admin'];
+
+    return mysqli_query($koneksi, "INSERT INTO tb_tahun_ajaran SET tapel='$tapel', tstamp='$tstamp', admin='$admin'");
+}
+
+function hapus_tapel()
+{
+    global $koneksi;
+    $id = $_POST['id'];
+
+    return mysqli_query($koneksi, "DELETE FROM tb_tahun_ajaran WHERE id='$id'");
+}
+
+
+function edit_tapel()
+{
+    global $koneksi;
+    $id = $_POST['id'];
+    $tapel = $_POST['tapel'];
+
+    date_default_timezone_set("Asia/Jakarta");
+    $tstamp = date("d-m-Y h:i:s a");
+
+    $admin = $_POST['admin'];
+
+    return mysqli_query($koneksi, "UPDATE tb_tahun_ajaran SET tapel='$tapel', tstamp='$tstamp', admin='$admin'");
+}
+
+function hapus_tapel_semua()
+{
+    global $koneksi;
+
+    return mysqli_query($koneksi, "DELETE FROM tb_tahun_ajaran");
+}
+// -- END TAPEL --
 
 function gambar($img, $size)
 {
