@@ -248,6 +248,59 @@ function hapus_tapel_semua()
 }
 // -- END TAPEL --
 
+
+// --- FUNGSI JENIS BAYAR ---
+
+function jenis_bayar()
+{
+    global $koneksi;
+    $tapel = $_POST['tapel'];
+    $kelas = $_POST['kelas'];
+    $nominal = $_POST['nominal'];
+
+    date_default_timezone_set("Asia/Jakarta");
+    $tstamp = date("d-m-Y h:i:s a");
+
+    $admin = $_POST['admin'];
+
+    return mysqli_query($koneksi, "INSERT INTO tb_jenis_pembayaran SET tapel='$tapel', kelas='$kelas', nominal='$nominal', tstamp='$tstamp', admin='$admin'");
+}
+
+function hapus_jenis_bayar()
+{
+    global $koneksi;
+    $id = $_POST['id'];
+
+    return mysqli_query($koneksi, "DELETE FROM tb_jenis_pembayaran WHERE id='$id'");
+}
+function hapus_jenis_bayar_semua()
+{
+    global $koneksi;
+
+    $hapus = mysqli_query($koneksi, "DELETE FROM tb_jenis_pembayaran");
+
+    // $hapus2 = mysqli_query($koneksi, "DELETE FROM tb_tapel");
+
+    // $hapus3 = mysqli_query($koneksi, "DELETE FROM tb_kelas");
+}
+
+function edit_jenis_bayar()
+{
+    global $koneksi;
+    $id = $_POST['id'];
+    $tapel = $_POST['tapel'];
+    $kelas = $_POST['kelas'];
+    $nominal = $_POST['nominal'];
+
+    date_default_timezone_set("Asia/Jakarta");
+    $tstamp = date("d-m-Y h:i:s a");
+
+    $admin = $_POST['admin'];
+
+    return mysqli_query($koneksi, "UPDATE tb_jenis_pembayaran SET tapel='$tapel', kelas='$kelas', nominal='$nominal', tstamp='$tstamp', admin='$admin' WHERE id='$id'");
+}
+
+// --- END JENIS BAYAR ----------
 function gambar($img, $size)
 {
     echo '<img src="//localhost/kerja-praktek/assets/images/' . $img . '" width="' . $size . '">';

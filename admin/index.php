@@ -24,4 +24,7 @@ switch ($modul) {
     case 'tapel':
         include 'modul/tapel/index.php';
         break;
+    case 'jenis_bayar':
+        include 'modul/jenis_bayar/index.php';
+        break;
 }

@@ -83,7 +83,7 @@
                                             <a href="?m=siswa">Data Siswa <span class="bot-line"></span></a>
                                         </li>
                                         <li>
-                                            <a href="?m=jenis_bayar">Data Jenis Pembayaran <span class="bot-line"></span></a>
+                                            <a href="?m=jenis_bayar">Data SPP <span class="bot-line"></span></a>
                                         </li>
                                         <li>
 
@@ -209,7 +209,7 @@
                                         <a href="?m=siswa">Data Siswa</a>
                                     </li>
                                     <li>
-                                        <a href="?m=jenis_bayar">Data Jenis Pembayaran</a>
+                                        <a href="?m=jenis_bayar">Data SPP</a>
                                     </li>
                                 </ul>
                             </li>
