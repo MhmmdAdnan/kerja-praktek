@@ -233,9 +233,11 @@ function edit_tapel()
     date_default_timezone_set("Asia/Jakarta");
     $tstamp = date("d-m-Y h:i:s a");
 
+
+
     $admin = $_POST['admin'];
 
-    return mysqli_query($koneksi, "UPDATE tb_tahun_ajaran SET tapel='$tapel', tstamp='$tstamp', admin='$admin'");
+    return mysqli_query($koneksi, " UPDATE tb_tahun_ajaran SET tapel='$tapel', tstamp='$tstamp', admin='$admin' WHERE id='$id'");
 }
 
 function hapus_tapel_semua()
