@@ -415,6 +415,52 @@ function hapus_semua_tagihan()
 }
 
 // --- END FUNGSI PRINT --------------------
+
+
+// --- FUNGSI RUPIAH DAN BULAN ------------------------
+function bulan_sekarang($colorc)
+{
+    date_default_timezone_set("Asia/Jakarta");
+    $bulan = date("m");
+
+    if ($bulan == 1) {
+        echo '<h4 style="color: ' . $colorc . ';">Januari</h4>';
+    } else if ($bulan == 2) {
+        echo '<h4 style="color: ' . $colorc . ';">Febuari</h4>';
+    } elseif ($bulan == 3) {
+        echo '<h4 style="color: ' . $colorc . ';">Maret</h4>';
+    } elseif ($bulan == 4) {
+        echo '<h4 style="color: ' . $colorc . ';">April</h4>';
+    } elseif ($bulan == 5) {
+        echo '<h4 style="color: ' . $colorc . ';">Mei</h4>';
+    } elseif ($bulan == 6) {
+        echo '<h4 style="color: ' . $colorc . ';">Juni</h4>';
+    } elseif ($bulan == 7) {
+        echo '<h4 style="color: ' . $colorc . ';">Juli</h4>';
+    } elseif ($bulan == 8) {
+        echo '<h4 style="color: ' . $colorc . ';">Agustus</h4>';
+    } elseif ($bulan == 9) {
+        echo '<h4 style="color: ' . $colorc . ';">September</h4>';
+    } elseif ($bulan == 10) {
+        echo '<h4 style="color: ' . $colorc . ';">Oktober</h4>';
+    } elseif ($bulan == 11) {
+        echo '<h4 style="color: ' . $colorc . ';">November</h4>';
+    } elseif ($bulan == 12) {
+        echo '<h4 style="color: ' . $colorc . ';">Desember</h4>';
+    }
+}
+
+
+
+
+
+function rupiah($angka)
+{
+    $hasil = "Rp. " . number_format($angka, 2, ',', '.');
+    return $hasil;
+}
+
+// --- END FUNGSI RUPIAH DAN BULAN -----------------
 function gambar($img, $size)
 {
     echo '<img src="//localhost/kerja-praktek/assets/images/' . $img . '" width="' . $size . '">';

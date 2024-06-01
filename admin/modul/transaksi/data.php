@@ -55,7 +55,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td><input type="submit" class="btn btn-success" name="byrbtn" value="bayar"></td>
+						<td><input type="submit" class="btn btn-success" name="byrbtn" value="BAYAR"></td>
 					</tr>
 				</thead>
 
