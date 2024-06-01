@@ -27,4 +27,16 @@ switch ($modul) {
     case 'jenis_bayar':
         include 'modul/jenis_bayar/index.php';
         break;
+    case 'bayar':
+        include 'modul/transaksi/index.php';
+        break;
+    case 'tagihan':
+        include 'modul/laporan/index.php';
+        break;
+    case 'print':
+        include 'fungsi/print/print-transaksi.php';
+        break;
+    case 'cetak':
+        include 'fungsi/print/print-tagihan.php';
+        break;
 }

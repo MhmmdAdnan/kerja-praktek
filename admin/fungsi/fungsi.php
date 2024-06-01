@@ -301,6 +301,120 @@ function edit_jenis_bayar()
 }
 
 // --- END JENIS BAYAR ----------
+
+// --- FUNGSI TRANSAKSI SPP  ---
+
+function bayar_spp()
+{
+    global $koneksi;
+    $nis = $_POST['nis'];
+
+    $nama = $_POST['nama'];
+
+    $kelas = $_POST['kelas'];
+    $tapel = $_POST['tapel'];
+    $nominal = $_POST['nominal'];
+    $bayar = $_POST['bayar'];
+
+    // waktu
+    date_default_timezone_set("Asia/Jakarta");
+    $bulan = date("m");
+    $tstamp = date("d-m-Y h:i:s a");
+    // admin
+
+
+    $kembalian = $bayar - $nominal;
+    $admin = $_POST['admin'];
+    $selectbayar = mysqli_query($koneksi, "SELECT * FROM tb_bayar WHERE bulan='$bulan' AND nis='$nis'");
+    $cek = mysqli_num_rows($selectbayar);
+    if ($cek) {
+        echo '<script>alert("SPP bulan ini sudah dibayar")</script>';
+    } else {
+        $save = mysqli_query($koneksi, "INSERT INTO tb_bayar SET nis='$nis', nama='$nama', kelas='$kelas', tapel='$tapel', bayar='$bayar', bulan='$bulan', tstamp='$tstamp', admin='$admin'");
+        $save2 = mysqli_query($koneksi, "UPDATE tb_tagihan SET keterangan ='lunas', bulan='$bulan' WHERE nis='$nis'");
+        if ($save) {
+            echo '<script>window.open("?m=print&nis=' . $nis . '&nominal=' . $nominal . '&kembalian=' . $kembalian . '", "_blank");</script>';
+        } else {
+            echo '<script>alert(">:(")</script>';
+        }
+    }
+}
+
+function delele_spp()
+{
+    global $koneksi;
+    $id = $_POST['id'];
+
+    // Lakukan kueri untuk mendapatkan NIS dari pembayaran yang akan dihapus
+    $result = mysqli_query($koneksi, "SELECT nis FROM tb_bayar WHERE id='$id'");
+    $row = mysqli_fetch_assoc($result);
+    $nis = $row['nis'];
+
+    // Hapus entri pembayaran
+    $delete_spp = mysqli_query($koneksi, "DELETE FROM tb_bayar WHERE id='$id'");
+
+    if ($delete_spp) {
+        // Ubah status pembayaran menjadi tidak lunas dan hapus informasi bulan yang dibayarkan
+        $update_tagihan = mysqli_query($koneksi, "UPDATE tb_tagihan SET keterangan ='belum lunas', bulan='-' WHERE nis='$nis'");
+        if ($update_tagihan) {
+            // Jika berhasil dihapus, kembalikan true
+            return true;
+        } else {
+            // Jika gagal mengubah status pembayaran, kembalikan false
+            return false;
+        }
+    } else {
+        // Jika gagal menghapus pembayaran, kembalikan false
+        return false;
+    }
+}
+
+// --- END TRANSAKSI SPP -------------------------------
+
+// --- FUNGSI PRINT -------------------
+
+function select_print_siswa()
+{
+    global $koneksi;
+    $nis = $_GET['nis'];
+
+    return mysqli_query($koneksi, "SELECT * FROM tb_siswa WHERE nis = '$nis'");
+}
+
+function select_print_bayar()
+{
+    global $koneksi;
+
+    $nis = $_GET['nis'];
+
+    date_default_timezone_set("Asia/Jakarta");
+    $bulan = date("m");
+
+    return mysqli_query($koneksi, "SELECT * FROM tb_bayar WHERE nis='$nis' AND bulan = '$bulan' ");
+}
+
+function print_tagihan()
+{
+    global $koneksi;
+    return mysqli_query($koneksi, "SELECT * FROM tb_tagihan");
+}
+
+// Hapus semua entri dari tb_bayar
+function hapus_semua_tagihan()
+{
+    global $koneksi;
+
+    // Hapus semua data dari tb_bayar
+    $hapus = mysqli_query($koneksi, "DELETE FROM tb_bayar");
+
+    // Set kolom bulan menjadi '-' dan keterangan menjadi 'belum lunas' di tb_tagihan
+    $update_tagihan = mysqli_query($koneksi, "UPDATE tb_tagihan SET bulan='-', keterangan='belum lunas'");
+
+    // Kembalikan hasil query
+    return $hapus && $update_tagihan;
+}
+
+// --- END FUNGSI PRINT --------------------
 function gambar($img, $size)
 {
     echo '<img src="//localhost/kerja-praktek/assets/images/' . $img . '" width="' . $size . '">';
